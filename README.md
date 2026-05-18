@@ -1,4 +1,4 @@
-# Agent skills library
+# Cosmo agent skills
 
 Portable, domain-agnostic skills for Claude Code, Cursor, Ralph loops, and other
 agentic workflows. Each skill is a directory with a `SKILL.md` file.
@@ -9,7 +9,7 @@ Agents edit project files, recompile or re-export, then look at the PDF.
 ## Install
 
 ```bash
-git clone https://github.com/licongxu/agent_skills.git
+git clone https://github.com/licongxu/cosmo-agent-skills.git
 ```
 
 Symlink or copy each skill folder into `~/.cursor/skills/` (Cursor) or reference
@@ -20,7 +20,7 @@ the library path from project `CLAUDE.md` / your agent prompt.
 ln -s "$(pwd)/vlm-figure-audit" ~/.cursor/skills/vlm-figure-audit
 
 # Or symlink the whole library and point agents at it
-ln -s "$(pwd)" ~/.cursor/skills/agent_skills
+ln -s "$(pwd)" ~/.cursor/skills/cosmo-agent-skills
 ```
 
 ## Skills
