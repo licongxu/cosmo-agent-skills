@@ -29,6 +29,7 @@ ln -s "$(pwd)" ~/.cursor/skills/cosmo-agent-skills
 |-------|----------|
 | [vlm-figure-audit](vlm-figure-audit/SKILL.md) | Visual QA on figures, tables, and PDF layout |
 | [latex-paper-workflow](latex-paper-workflow/SKILL.md) | Building manuscript PDFs; layout debug via VLM |
+| [paper-layout-review](paper-layout-review/SKILL.md) | Iterative PDF layout clash fix (text, floats, equations) |
 | [scientific-plotting](scientific-plotting/SKILL.md) | Publication-quality figure exports for LaTeX |
 | [prose-style-research](prose-style-research/SKILL.md) | Paper text and captions (no em dashes) |
 | [research-figure-manifest](research-figure-manifest/SKILL.md) | Figure provenance and validator status |

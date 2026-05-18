@@ -60,9 +60,13 @@ when possible, **results-check** (numeric point counts) before `OK`.
 
 ### Page layout (from compiled PDF)
 
+Spot-check only. For a full first-draft or pre-submission pass, use
+**paper-layout-review** (iterative loop until no clashes).
+
 - No obvious table–text or figure–text collision.
 - No large empty blocks that suggest a stuck float, unless intentional.
 - Figure and table order readable relative to where they are first mentioned.
+- No display equation clearly wider than the column or into the margin.
 
 Optional: spot-check that headline numbers in the caption match the plot or table.
 
