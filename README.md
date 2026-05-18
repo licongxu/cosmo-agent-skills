@@ -32,6 +32,7 @@ ln -s "$(pwd)" ~/.cursor/skills/cosmo-agent-skills
 | [scientific-plotting](scientific-plotting/SKILL.md) | Publication-quality figure exports for LaTeX |
 | [prose-style-research](prose-style-research/SKILL.md) | Paper text and captions (no em dashes) |
 | [research-figure-manifest](research-figure-manifest/SKILL.md) | Figure provenance and validator status |
+| [results-check](results-check/SKILL.md) | VLM + numerical validation after plots or saved arrays |
 
 ## Maintenance
 

@@ -21,7 +21,7 @@ VLM audit passed.
 | Input artifacts | Data files or run directory used |
 | Run id / git hash | Reproducibility |
 | Sample count, seed | If applicable |
-| Validator | OK / WARN / BLOCKING from **vlm-figure-audit** + date |
+| Validator | OK / WARN / BLOCKING from **results-check** and/or **vlm-figure-audit** + date |
 
 Store in project notes or a manifest file the repo already uses.
 
@@ -39,5 +39,6 @@ BLOCKING validator status. Fix or regenerate before unrelated work.
 ## Integration
 
 - **scientific-plotting:** export rules for the asset file.
-- **vlm-figure-audit:** fills validator; also use on compiled PDF pages for layout.
+- **results-check:** numeric + first-pass visual validation on new artefacts.
+- **vlm-figure-audit:** fills validator for print/layout; use on compiled PDF pages.
 - **latex-paper-workflow:** compile only when on-disk figures and manifest agree.
