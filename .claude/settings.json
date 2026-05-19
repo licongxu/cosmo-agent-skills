@@ -1,0 +1,56 @@
+{
+  "_note": "Template for projects using cosmo-agent-skills hooks. Copy this .claude/ tree into your repo, or merge hooks into your existing settings. /loop-on and /loop-off; edit loop-prompt.md.",
+  "worktree": {
+    "bgIsolation": "none"
+  },
+  "env": {
+    "CLAUDE_CODE_STOP_HOOK_BLOCK_CAP": "1000000"
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/loop-stop.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/protect-write-scope.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "defaultMode": "auto",
+    "allow": [
+      "Bash",
+      "Read",
+      "Edit(/**)",
+      "Write(/**)",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "Task",
+      "NotebookEdit(/**)",
+      "Agent(*)",
+      "mcp__*"
+    ]
+  },
+  "sandbox": {
+    "enabled": false,
+    "allowUnsandboxedCommands": true
+  },
+  "enableAllProjectMcpServers": true,
+  "skipWebFetchPreflight": true
+}

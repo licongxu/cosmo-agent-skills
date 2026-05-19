@@ -2,5 +2,7 @@
 ref_papers/*
 !ref_papers/README.md
 
-# Local Claude Code settings (not part of the plugin)
-.claude/
+# Local-only Claude Code state (hooks/settings in .claude/ are tracked)
+.claude/loop.on
+.claude/settings.local.json
+.claude/worktrees/

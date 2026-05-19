@@ -12,10 +12,17 @@ commands, units, and science belong in that repo's `CLAUDE.md`.
 
 ```
 cosmo-agent-skills/
+├── .claude/                  # hooks + non-stop loop (copy into your project)
+│   ├── hooks/                # loop-stop, protect-write-scope
+│   ├── scripts/              # loop-on, loop-off
+│   ├── commands/             # /loop-on, /loop-off
+│   ├── loop-prompt.md        # continuation checklist each stop
+│   └── settings.json         # template (hooks + permissions)
 ├── .claude-plugin/
 │   ├── plugin.json           # plugin manifest
 │   └── marketplace.json      # marketplace catalog
 ├── agents/                   # bundled subagents (code-reviewer, repo-organizer)
+├── examples/                 # settings snippets
 ├── ref_papers/               # local PDFs only (gitignored)
 └── skills/
     ├── hydrosim/             # simulation data (FLAMINGO: 6 skills)
@@ -25,6 +32,19 @@ cosmo-agent-skills/
 ```
 
 Add new categories under `skills/` with a category `README.md`.
+
+## Non-stop loop (Claude Code hooks)
+
+Optional **autonomous iteration**: a Stop hook re-sends `.claude/loop-prompt.md` whenever Claude tries to end a turn, so the session keeps running until you run `/loop-off`.
+
+1. Copy [`.claude/`](.claude/README.md) into your project (or `rsync` hooks, scripts, commands, and `loop-prompt.md`).
+2. Merge `hooks` and `env` from [`.claude/settings.json`](.claude/settings.json) or [examples/claude-settings.nonstop-loop.json](examples/claude-settings.nonstop-loop.json).
+3. `chmod +x .claude/hooks/*.sh .claude/scripts/*.sh`
+4. In Claude Code: `/loop-on`, then your first task. Run `/loop-off` when done.
+
+Requires **bash**, **jq**, and **realpath**. Plugin install alone does not enable hooks — copy `.claude/` into your project.
+
+See [.claude/README.md](.claude/README.md) for safety notes and troubleshooting. Customize `loop-prompt.md` per project.
 
 ## Claude Code plugin
 

@@ -4,14 +4,14 @@
     "name": "licongxu"
   },
   "metadata": {
-    "description": "Paper-writing and coding agent skills for research software and manuscripts."
+    "description": "Paper-writing, plotting validation, coding, FLAMINGO data skills, and optional non-stop Claude Code hooks."
   },
   "plugins": [
     {
       "name": "cosmo-agent-skills",
       "source": "./",
-      "description": "IMRaD manuscript workflow, plotting validation, coding skills, and FLAMINGO data-release reference skills.",
-      "version": "0.3.0",
+      "description": "IMRaD manuscript workflow, plotting validation, coding skills, FLAMINGO data-release reference skills, and copyable non-stop loop hooks.",
+      "version": "0.3.1",
       "category": "productivity"
     }
   ]
