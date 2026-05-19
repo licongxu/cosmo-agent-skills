@@ -8,8 +8,8 @@ description: >-
 
 # Manuscript writing style
 
-Guidance from Chamba, Knapen & Black (2022), Papers I–II (optional local PDFs
-in repo root `ref_papers/`, gitignored).
+Guidance from Chamba, Knapen & Black (2022), Papers I–II
+([arXiv:2207.12959](https://arxiv.org/abs/2207.12959) — optional; skills stand alone).
 Applies to `.tex` body text, abstracts, and captions.
 
 ## Narrative structure

@@ -1,12 +1,12 @@
 {
   "name": "cosmo-agent-skills",
-  "description": "Research paper-writing and software-engineering skills for cosmology and scientific computing workflows.",
-  "version": "0.1.0",
+  "description": "Research paper-writing, coding, and FLAMINGO data skills for scientific computing workflows.",
+  "version": "0.2.0",
   "author": {
     "name": "licongxu"
   },
   "homepage": "https://github.com/licongxu/cosmo-agent-skills",
   "repository": "https://github.com/licongxu/cosmo-agent-skills",
   "license": "MIT",
-  "skills": ["./skills/coding", "./skills/paper-writing"]
+  "skills": ["./skills/coding", "./skills/paper-writing", "./skills/hydrosim/flamingo"]
 }

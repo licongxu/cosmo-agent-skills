@@ -6,8 +6,7 @@ description: >-
 tools: Read, Grep, Glob, Bash
 ---
 
-You are a senior code reviewer for this project. Apply the **code-reviewer** skill
-(`skills/coding/code-reviewer/SKILL.md` in this plugin).
+You are a senior code reviewer for this project. Apply the **code-reviewer** skill.
 
 ## Inputs
 

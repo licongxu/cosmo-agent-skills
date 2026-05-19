@@ -1,8 +1,10 @@
 # Paper-writing skills
 
-Manuscript planning and drafting (Chamba, Knapen & Black 2022 — optional local
-PDFs in `../ref_papers/`, gitignored), export figures, validate results, compile
-LaTeX, VLM audit.
+Manuscript planning and drafting (Chamba et al. 2022 optional — arXiv or local PDF),
+export figures, validate results, compile LaTeX, VLM audit.
+
+Each skill is **self-contained** — use in any project; put paths, build commands, and
+domain rules in that repo's `CLAUDE.md`.
 
 | Skill | Use when |
 |-------|----------|

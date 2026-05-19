@@ -11,9 +11,9 @@ description: >-
 **Deliverable:** a reproducible manuscript PDF whose **message**, **figures**, and
 **text** agree. Figures are project-generated PDF assets, not chat screenshots.
 
-**References (optional, local):** Chamba, Knapen & Black (2022), Papers I–II —
-place `paper_plan.pdf` and `paper_writing.pdf` in repo root `ref_papers/` (gitignored;
-see `ref_papers/README.md`). Read before a major draft if available.
+**References (optional):** Chamba, Knapen & Black (2022), Papers I–II —
+[arXiv:2207.12959](https://arxiv.org/abs/2207.12959). Skills work without the PDFs;
+fetch from arXiv or keep local copies anywhere convenient. No fixed folder required.
 
 ## Principles
 

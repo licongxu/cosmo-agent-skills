@@ -24,6 +24,7 @@ artefacts exist.
 
 - Right after any script writes a figure (`savefig`, export to PDF/PNG/SVG) or a
   result file (`np.savez`, `np.save`, `torch.save`, `pickle`, Parquet, HDF5, etc.).
+  **PNG:** always `dpi=300` (see **scientific-plotting**).
 - Before any manuscript section, slide, or report cites the figure.
 - Whenever a plot or metric looks suspicious (discontinuities, empty panels,
   saturated colors, orders-of-magnitude jumps).

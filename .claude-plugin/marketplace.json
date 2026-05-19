@@ -10,8 +10,8 @@
     {
       "name": "cosmo-agent-skills",
       "source": "./",
-      "description": "IMRaD manuscript workflow, VLM figure QA, and code write/test/review skills.",
-      "version": "0.1.0",
+      "description": "IMRaD manuscript workflow, VLM figure QA, coding skills, and FLAMINGO data-release reference skills.",
+      "version": "0.2.0",
       "category": "productivity"
     }
   ]
