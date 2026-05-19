@@ -1,41 +1,95 @@
 # Cosmo agent skills
 
-Portable, domain-agnostic skills for Claude Code, Cursor, Ralph loops, and other
-agentic workflows. Each skill is a directory with a `SKILL.md` file.
+Portable skills for Claude Code, Cursor, Ralph loops, and other agent workflows.
+This repository **is** a Claude Code plugin — skills live under `skills/`; manifest
+under `.claude-plugin/` (tracked in git).
 
-**Design:** principles and VLM-based checks, not copy-paste LaTeX or plotting code.
-Agents edit project files, recompile or re-export, then look at the PDF.
+**Design:** principles and checks, not copy-paste recipes. Project-specific
+commands, units, and science belong in that repo's `CLAUDE.md`.
 
-## Install
+## Layout
+
+```
+cosmo-agent-skills/
+├── .claude-plugin/
+│   ├── plugin.json           # plugin manifest
+│   └── marketplace.json      # marketplace catalog
+├── agents/                   # bundled subagents
+├── ref_papers/               # local PDFs only (gitignored)
+└── skills/
+    ├── paper-writing/        # manuscript workflow (7 skills)
+    └── coding/               # software engineering (3 skills)
+```
+
+Add new categories under `skills/` with a category `README.md`.
+
+## Claude Code plugin
+
+Per [Create plugins](https://code.claude.com/docs/en/plugins):
+
+```bash
+# Dev: load this repo as a plugin
+claude --plugin-dir .
+
+# Persistent: register marketplace + install
+/plugin marketplace add /path/to/cosmo-agent-skills
+/plugin install cosmo-agent-skills@cosmo-agent-skills
+```
+
+Skills invoke as `/cosmo-agent-skills:<skill-name>` (e.g. `/cosmo-agent-skills:code-testing`).
+
+Validate: `claude plugin validate .`
+
+Bump `version` in `.claude-plugin/plugin.json` and `marketplace.json` when releasing.
+
+## Install (Cursor / symlinks)
 
 ```bash
 git clone https://github.com/licongxu/cosmo-agent-skills.git
+cd cosmo-agent-skills
 ```
 
-Symlink or copy each skill folder into `~/.cursor/skills/` (Cursor) or reference
-the library path from project `CLAUDE.md` / your agent prompt.
+**Cursor** — symlink individual skills:
 
 ```bash
-# Cursor: one skill
-ln -s "$(pwd)/vlm-figure-audit" ~/.cursor/skills/vlm-figure-audit
-
-# Or symlink the whole library and point agents at it
-ln -s "$(pwd)" ~/.cursor/skills/cosmo-agent-skills
+for d in skills/paper-writing/*/ skills/coding/*/; do
+  ln -sf "$(pwd)/$d" ~/.cursor/skills/"$(basename "$d")"
+done
 ```
 
-## Skills
+## Categories
+
+### [skills/paper-writing/](skills/paper-writing/)
+
+Manuscript planning, prose, figures, validation, LaTeX compile, VLM layout QA.
 
 | Skill | Use when |
 |-------|----------|
-| [vlm-figure-audit](vlm-figure-audit/SKILL.md) | Visual QA on figures, tables, and PDF layout |
-| [latex-paper-workflow](latex-paper-workflow/SKILL.md) | Building manuscript PDFs; layout debug via VLM |
-| [paper-layout-review](paper-layout-review/SKILL.md) | Iterative PDF layout clash fix (text, floats, equations) |
-| [scientific-plotting](scientific-plotting/SKILL.md) | Publication-quality figure exports for LaTeX |
-| [prose-style-research](prose-style-research/SKILL.md) | Paper text and captions (no em dashes) |
-| [research-figure-manifest](research-figure-manifest/SKILL.md) | Figure provenance and validator status |
-| [results-check](results-check/SKILL.md) | VLM + numerical validation after plots or saved arrays |
+| [paper-writing-workflow](skills/paper-writing/paper-writing-workflow/SKILL.md) | Plan → draft → compile → VLM |
+| [manuscript-writing-style](skills/paper-writing/manuscript-writing-style/SKILL.md) | IMRaD text, tone, captions |
+| [scientific-plotting](skills/paper-writing/scientific-plotting/SKILL.md) | Publication-quality figure exports |
+| [results-check](skills/paper-writing/results-check/SKILL.md) | VLM + numeric validation |
+| [vlm-figure-audit](skills/paper-writing/vlm-figure-audit/SKILL.md) | Figure/table visual QA |
+| [paper-layout-review](skills/paper-writing/paper-layout-review/SKILL.md) | PDF layout clash loop |
+| [research-figure-manifest](skills/paper-writing/research-figure-manifest/SKILL.md) | Figure provenance |
 
-## Maintenance
+References (local, optional): Chamba et al. (2022) PDFs in `ref_papers/` (gitignored) —
+see [ref_papers/README.md](ref_papers/README.md).
 
-Keep skills short. Project-specific build commands, units, and science checks
-belong in that repo's `CLAUDE.md`, not in these shared skills.
+### [skills/coding/](skills/coding/)
+
+Software engineering — write, test, review.
+
+| Skill | Use when |
+|-------|----------|
+| [code-writing](skills/coding/code-writing/SKILL.md) | Implement with minimal diff, explicit assumptions |
+| [code-testing](skills/coding/code-testing/SKILL.md) | Test-first, verify red/green, edge cases |
+| [code-reviewer](skills/coding/code-reviewer/SKILL.md) | Diff review vs plan/requirements before merge |
+
+## Adding skills
+
+1. Add `skills/<category>/<skill-name>/SKILL.md` with frontmatter `name` and `description`.
+2. Update category `README.md` and this file.
+3. Bump `.claude-plugin/plugin.json` and `marketplace.json` `version` when releasing.
+
+Keep each skill short. One concern per skill; use the category README for workflow order.

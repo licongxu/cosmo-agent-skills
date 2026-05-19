@@ -23,7 +23,9 @@ script and re-export.
    on screen and shrunk only in the manuscript.
 4. **No clipped or overlapping text** at the edges; legend must not hide the data.
 
-Secondary styling (colors, spines, grid) is optional unless the project specifies it.
+Secondary styling: distinguish series with **line/marker style and colour**, not
+colour alone (colour-vision deficiency affects up to ~10% of readers; Paper II,
+Sect. 2.3). Other styling unless the project specifies it.
 
 ## How to verify
 

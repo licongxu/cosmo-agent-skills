@@ -1,0 +1,3 @@
+# Local reference PDFs (not distributed with the repo)
+ref_papers/*
+!ref_papers/README.md

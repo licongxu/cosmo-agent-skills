@@ -41,4 +41,4 @@ BLOCKING validator status. Fix or regenerate before unrelated work.
 - **scientific-plotting:** export rules for the asset file.
 - **results-check:** numeric + first-pass visual validation on new artefacts.
 - **vlm-figure-audit:** fills validator for print/layout; use on compiled PDF pages.
-- **latex-paper-workflow:** compile only when on-disk figures and manifest agree.
+- **paper-writing-workflow:** compile only when on-disk figures and manifest agree.

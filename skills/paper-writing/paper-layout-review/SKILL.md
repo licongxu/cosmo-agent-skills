@@ -88,7 +88,7 @@ a clean margin means OK without reading the image.
 - **Hyphenation storms** or overfull boxes visible as tight word spacing (often beside big floats).
 - **References / citations** broken across lines in a way that reads as two sentences fused.
 
-Science and wording are out of scope here; use **prose-style-research** and referee
+Science and wording are out of scope here; use **manuscript-writing-style** and referee
 review separately.
 
 ## Fix strategies (edit source, then recompile)
@@ -135,7 +135,7 @@ Keep a short table in the PR description or agent notes:
 
 ## Integration
 
-- **latex-paper-workflow:** compile step; run this skill after each substantive build.
+- **paper-writing-workflow:** compile step; run this skill after each substantive build.
 - **vlm-figure-audit:** figure/table **content** and spot layout; this skill owns
   **full-document iterative** clash removal.
 - **scientific-plotting:** figure dimensions before blaming LaTeX scaling.
