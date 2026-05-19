@@ -2,7 +2,5 @@
 ref_papers/*
 !ref_papers/README.md
 
-# Local-only Claude Code state (hooks/settings in .claude/ are tracked)
-.claude/loop.on
-.claude/settings.local.json
-.claude/worktrees/
+# Local-only Claude Code state (plugin hooks live at repo root; project runtime only)
+.claude/

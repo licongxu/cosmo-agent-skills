@@ -3,6 +3,6 @@
 
 set -euo pipefail
 
-ROOT="${CLAUDE_PROJECT_DIR:-.}"
-rm -f "$ROOT/.claude/loop.on"
+PROJECT="${CLAUDE_PROJECT_DIR:-.}"
+rm -f "$PROJECT/.claude/loop.on"
 echo "Non-stop loop OFF — Claude can exit normally on the next stop."

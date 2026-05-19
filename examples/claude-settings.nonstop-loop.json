@@ -1,30 +1,6 @@
 {
-  "_comment": "Merge into your project's .claude/settings.json. Requires copying .claude/hooks, scripts, commands, and loop-prompt.md from this repo.",
+  "_comment": "Optional: merge env into your project's .claude/settings.json if Stop hook blocks are truncated. Hooks ship in the cosmo-agent-skills plugin (hooks/hooks.json) — no copy step required.",
   "env": {
     "CLAUDE_CODE_STOP_HOOK_BLOCK_CAP": "1000000"
-  },
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/loop-stop.sh",
-            "timeout": 30
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "Edit|Write",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/protect-write-scope.sh"
-          }
-        ]
-      }
-    ]
   }
 }

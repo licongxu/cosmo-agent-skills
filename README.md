@@ -12,12 +12,10 @@ commands, units, and science belong in that repo's `CLAUDE.md`.
 
 ```
 cosmo-agent-skills/
-├── .claude/                  # hooks + non-stop loop (copy into your project)
-│   ├── hooks/                # loop-stop, protect-write-scope
-│   ├── scripts/              # loop-on, loop-off
-│   ├── commands/             # /loop-on, /loop-off
-│   ├── loop-prompt.md        # continuation checklist each stop
-│   └── settings.json         # template (hooks + permissions)
+├── hooks/                    # plugin Stop + PreToolUse hooks
+├── commands/                 # /loop-on, /loop-off (plugin slash commands)
+├── scripts/                  # loop toggle helpers
+├── loop-prompt.md            # default continuation checklist
 ├── .claude-plugin/
 │   ├── plugin.json           # plugin manifest
 │   └── marketplace.json      # marketplace catalog
@@ -33,18 +31,19 @@ cosmo-agent-skills/
 
 Add new categories under `skills/` with a category `README.md`.
 
-## Non-stop loop (Claude Code hooks)
+## Non-stop loop (plugin hooks)
 
-Optional **autonomous iteration**: a Stop hook re-sends `.claude/loop-prompt.md` whenever Claude tries to end a turn, so the session keeps running until you run `/loop-off`.
+Optional **autonomous iteration**: bundled in this plugin. A Stop hook re-sends the loop prompt whenever Claude tries to end a turn, until you run `/loop-off`.
 
-1. Copy [`.claude/`](.claude/README.md) into your project (or `rsync` hooks, scripts, commands, and `loop-prompt.md`).
-2. Merge `hooks` and `env` from [`.claude/settings.json`](.claude/settings.json) or [examples/claude-settings.nonstop-loop.json](examples/claude-settings.nonstop-loop.json).
-3. `chmod +x .claude/hooks/*.sh .claude/scripts/*.sh`
-4. In Claude Code: `/loop-on`, then your first task. Run `/loop-off` when done.
+1. Install the plugin (`/plugin install cosmo-agent-skills@cosmo-agent-skills`).
+2. Open Claude Code in your **project** root.
+3. `/loop-on`, then your first task. `/loop-off` when done.
 
-Requires **bash**, **jq**, and **realpath**. Plugin install alone does not enable hooks — copy `.claude/` into your project.
+**Prompt source:** plugin default [`loop-prompt.md`](loop-prompt.md), or override with `.claude/loop-prompt.md` in your project (created by `/loop-on` with arguments).
 
-See [.claude/README.md](.claude/README.md) for safety notes and troubleshooting. Customize `loop-prompt.md` per project.
+Requires **bash**, **jq**, and **realpath** on the host. Optional: merge [examples/claude-settings.nonstop-loop.json](examples/claude-settings.nonstop-loop.json) if long prompts are truncated.
+
+**Safety:** while `/loop-on` is active, Claude cannot exit until `/loop-off`. `protect-write-scope` limits Edit/Write to `CLAUDE_PROJECT_DIR`.
 
 ## Claude Code plugin
 

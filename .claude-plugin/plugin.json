@@ -1,7 +1,7 @@
 {
   "name": "cosmo-agent-skills",
   "description": "Research paper-writing, plotting validation, coding, and FLAMINGO data skills for scientific computing workflows.",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": {
     "name": "licongxu"
   },
@@ -13,5 +13,7 @@
     "./skills/plotting",
     "./skills/paper-writing",
     "./skills/hydrosim/flamingo"
-  ]
+  ],
+  "hooks": "./hooks/hooks.json",
+  "commands": ["./commands/"]
 }
