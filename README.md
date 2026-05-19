@@ -19,7 +19,8 @@ cosmo-agent-skills/
 ├── ref_papers/               # local PDFs only (gitignored)
 └── skills/
     ├── hydrosim/             # simulation data (FLAMINGO: 6 skills)
-    ├── paper-writing/        # manuscript workflow (7 skills)
+    ├── plotting/             # figure export + validation (6 skills)
+    ├── paper-writing/        # manuscript workflow (3 skills)
     └── coding/               # software engineering (4 skills)
 ```
 
@@ -53,7 +54,7 @@ git clone https://github.com/licongxu/cosmo-agent-skills.git
 cd cosmo-agent-skills
 
 # Cursor: one skill → ~/.cursor/skills/
-for d in skills/paper-writing/*/ skills/coding/*/; do
+for d in skills/plotting/*/ skills/paper-writing/*/ skills/coding/*/; do
   ln -sf "$(pwd)/$d" ~/.cursor/skills/"$(basename "$d")"
 done
 ```
@@ -82,19 +83,28 @@ The bundled **flamingo** subagent (in `agents/`) wires these six skills together
 
 Local PDFs (optional): `ref_papers/flaming_schaye23.pdf`, `ref_papers/flamingo_dr26.pdf`.
 
-### [skills/paper-writing/](skills/paper-writing/)
+### [skills/plotting/](skills/plotting/)
 
-Manuscript planning, prose, figures, validation, LaTeX compile, VLM layout QA.
+Figure export and validation — usable in analysis repos or before/during manuscript work.
 
 | Skill | Use when |
 |-------|----------|
-| [paper-writing-workflow](skills/paper-writing/paper-writing-workflow/SKILL.md) | Plan → draft → compile → VLM |
+| [scientific-plotting](skills/plotting/scientific-plotting/SKILL.md) | Vector PDF / PNG dpi=300 exports |
+| [plot-check](skills/plotting/plot-check/SKILL.md) | VLM + array completeness after `savefig` |
+| [physics-check](skills/plotting/physics-check/SKILL.md) | Numeric asserts on saved arrays |
+| [vlm-figure-audit](skills/plotting/vlm-figure-audit/SKILL.md) | Figure/table visual QA at print size |
+| [research-figure-manifest](skills/plotting/research-figure-manifest/SKILL.md) | Figure provenance and validator status |
+| [results-check](skills/plotting/results-check/SKILL.md) | plot-check → physics-check orchestrator |
+
+### [skills/paper-writing/](skills/paper-writing/)
+
+Manuscript planning, IMRaD prose, LaTeX compile, PDF layout. Figure pipeline → [plotting/](skills/plotting/).
+
+| Skill | Use when |
+|-------|----------|
+| [paper-writing-workflow](skills/paper-writing/paper-writing-workflow/SKILL.md) | Plan → draft → compile → layout QA |
 | [manuscript-writing-style](skills/paper-writing/manuscript-writing-style/SKILL.md) | IMRaD text, tone, captions |
-| [scientific-plotting](skills/paper-writing/scientific-plotting/SKILL.md) | Publication-quality figure exports |
-| [results-check](skills/paper-writing/results-check/SKILL.md) | VLM + numeric validation |
-| [vlm-figure-audit](skills/paper-writing/vlm-figure-audit/SKILL.md) | Figure/table visual QA |
-| [paper-layout-review](skills/paper-writing/paper-layout-review/SKILL.md) | PDF layout clash loop |
-| [research-figure-manifest](skills/paper-writing/research-figure-manifest/SKILL.md) | Figure provenance |
+| [paper-layout-review](skills/paper-writing/paper-layout-review/SKILL.md) | PDF float/equation clash loop |
 
 References (optional): Chamba et al. (2022) — [arXiv:2207.12959](https://arxiv.org/abs/2207.12959).
 This repo keeps optional local PDFs in `ref_papers/` (gitignored); see [ref_papers/README.md](ref_papers/README.md).

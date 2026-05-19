@@ -29,10 +29,10 @@ fetch from arXiv or keep local copies anywhere convenient. No fixed folder requi
    polishing body text (Paper I step 4; Paper II, Sect. 2.3).
 5. **IMRaD + hourglass** — broad intro → narrow methods/results → broad discussion
    (Paper II, Sect. 2.4).
-6. **Compile + debug by looking** — **paper-layout-review**, **vlm-figure-audit**;
-   fix sources and recompile; do not paste LaTeX in chat as the primary fix.
-7. **Prose** → **manuscript-writing-style**; plots → **scientific-plotting**;
-   provenance → **research-figure-manifest**.
+6. **Compile + debug by looking** — **paper-layout-review**, **vlm-figure-audit**
+   (plotting category); fix sources and recompile; do not paste LaTeX in chat.
+7. **Prose** → **manuscript-writing-style**; figures → **plotting/** skills
+   (export, plot-check, physics-check, manifest).
 
 ## Literature review (before drafting)
 
@@ -73,8 +73,8 @@ If a fact or figure is missing, **note it and keep writing**; fill later (Paper 
 ## Build loop (after drafting exists)
 
 1. Update plot scripts or `.tex` in the repo.
-2. Regenerate figure PDFs; **results-check** then **vlm-figure-audit** each asset.
-3. Update **research-figure-manifest** rows.
+2. Regenerate figure PDFs; **plot-check** → **physics-check** (or **results-check**).
+3. **vlm-figure-audit** each asset; update **research-figure-manifest** rows.
 4. Compile; **paper-layout-review** on affected pages (iterative).
 5. Record validator status in the project manifest if one exists.
 
@@ -91,8 +91,8 @@ If a fact or figure is missing, **note it and keep writing**; fill later (Paper 
 | Skill | Role |
 |-------|------|
 | **manuscript-writing-style** | IMRaD text, tone, captions, English mechanics |
-| **scientific-plotting** | Vector PDF at column width; colour-blind-safe design |
-| **results-check** | Numeric + visual completeness |
-| **vlm-figure-audit** | Figure/table content QA |
+| **scientific-plotting** | Vector PDF; colour-blind-safe design ([plotting/](../plotting/)) |
+| **plot-check** / **physics-check** | Visual completeness + numeric asserts |
+| **vlm-figure-audit** | Figure/table content QA ([plotting/](../plotting/)) |
 | **paper-layout-review** | Iterative float/equation clash fix |
-| **research-figure-manifest** | Provenance and validator status |
+| **research-figure-manifest** | Provenance and validator status ([plotting/](../plotting/)) |

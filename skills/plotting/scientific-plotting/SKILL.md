@@ -1,9 +1,9 @@
 ---
 name: scientific-plotting
 description: >-
-  Publication-quality plots for LaTeX papers: vector PDF output, PNG at dpi=300,
-  label and tick font sizes readable at final column width. Use when generating
-  or updating manuscript figures, or when plot text is too small or clipped in the PDF.
+  Publication-quality plots: vector PDF output, PNG at dpi=300, label and tick
+  font sizes readable at final column width. Use when generating or updating
+  figures for papers, slides, or reports; or when plot text is too small or clipped.
 ---
 
 # Scientific plotting
@@ -39,15 +39,14 @@ Sect. 2.3). Other styling unless the project specifies it.
 
 ## How to verify
 
-After export, run **vlm-figure-audit** on the figure file, or on the relevant
-page of the compiled PDF at approximately final size. If labels fail the visual
-check, adjust sizes or layout in the plot script and regenerate. Do not patch
-readability in the manuscript source with ad hoc scaling tricks.
+After export, run **plot-check**, then **vlm-figure-audit** at publication size.
+If labels fail, adjust the plot script and regenerate — do not patch readability
+only in LaTeX.
 
 ## Workflow
 
 1. Regenerate the figure asset (PDF and/or PNG at `dpi=300`).
-2. VLM audit at publication size.
-3. Rebuild the paper PDF and VLM-check the embedded result if layout changed.
+2. **plot-check** → **physics-check** on backing arrays.
+3. **vlm-figure-audit** on the standalone figure or compiled PDF page.
 
 Domain-specific units, axis ranges, and science checks belong in the project, not here.

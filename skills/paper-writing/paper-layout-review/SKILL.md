@@ -138,5 +138,5 @@ Keep a short table in the PR description or agent notes:
 - **paper-writing-workflow:** compile step; run this skill after each substantive build.
 - **vlm-figure-audit:** figure/table **content** and spot layout; this skill owns
   **full-document iterative** clash removal.
-- **scientific-plotting:** figure dimensions before blaming LaTeX scaling.
-- **research-figure-manifest:** optional note `layout_validator: LAYOUT OK @ <git hash>`.
+- **scientific-plotting** ([plotting/](../plotting/)): figure dimensions before blaming LaTeX.
+- **research-figure-manifest** ([plotting/](../plotting/)): optional `layout_validator: LAYOUT OK @ <git hash>`.

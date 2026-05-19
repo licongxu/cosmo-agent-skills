@@ -17,7 +17,7 @@ recompile, then look again.
 
 **Completeness:** VLMs often approve curves that look smooth but omit chunks of data.
 For line plots, scatter, and error bars, run the data-completeness items below and,
-when possible, **results-check** (numeric point counts) before `OK`.
+when possible, **plot-check** and **physics-check** before `OK`.
 
 ## When to run
 
@@ -50,7 +50,7 @@ when possible, **results-check** (numeric point counts) before `OK`.
 - Histograms / binned plots: suspicious empty bins or cutoffs inside the stated range.
 - If the caption implies full coverage ("all bins", "full sample", sample size N), the
   figure must support it; otherwise `WARN` or `BLOCKING`, not `OK`.
-- When source arrays are available, defer final `OK` to **results-check** Step 1b.
+- When source arrays are available, defer final `OK` to **plot-check** / **physics-check**.
 
 ### Tables
 

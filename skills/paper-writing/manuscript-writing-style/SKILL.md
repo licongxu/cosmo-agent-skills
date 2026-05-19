@@ -117,5 +117,5 @@ Use comma, parentheses, colon, separate sentences, or en dash for numeric ranges
 ## Integration
 
 - **paper-writing-workflow:** planning, literature review, compile/VLM loop.
-- **scientific-plotting** / **vlm-figure-audit:** visual side of figures.
+- **plotting/** skills (**scientific-plotting**, **plot-check**, **vlm-figure-audit**): figures.
 - **paper-layout-review:** layout only — not wording.

@@ -246,4 +246,4 @@ state the fix or ask a technical question.
 - Request review after substantive edits; before PR merge.
 - Pair with **code-writing** and **code-testing** for implement → test → review loop.
 - Repo `CLAUDE.md` for stack-specific gates (JAX, GPU limits, etc.).
-- Paper-bound changes: also run **results-check** / **vlm-figure-audit** where figures changed.
+- Paper-bound changes: also run **plot-check** / **physics-check** (or **results-check**) and **vlm-figure-audit** where figures changed ([plotting/](../../plotting/)).
