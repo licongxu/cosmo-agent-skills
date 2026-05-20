@@ -5,6 +5,13 @@ Each skill is factual inventory and usage guidance, not copy-paste code. For loa
 data, follow the portal pages **How to use this service** (web interface, Python
 module, examples).
 
+**Agent guidance:** [CLAUDE.md](CLAUDE.md) — session conventions, data-access rules,
+portal **yang26** tSZ map choice (see `flamingo-lightcones`), related theory repos,
+and hardware checks (copy into a project’s `.claude/` or read alongside these skills).
+
+**Reference project (portal-only tSZ, sim matrix):**  
+`/scratch/scratch-lxu/flamingo_data_analysis/autoflamingo`
+
 ## Skills (read in this order for a new project)
 
 | Skill | Portal section |

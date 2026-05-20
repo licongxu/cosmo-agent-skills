@@ -11,7 +11,7 @@
       "name": "cosmo-agent-skills",
       "source": "./",
       "description": "IMRaD manuscript workflow, plotting validation, coding skills, FLAMINGO data-release reference skills, and copyable non-stop loop hooks.",
-      "version": "0.3.2",
+      "version": "0.3.3",
       "category": "productivity"
     }
   ]

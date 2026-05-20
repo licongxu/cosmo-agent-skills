@@ -1,12 +1,12 @@
 ---
 description: "Enable non-stop mode (Stop hook keeps the session running)"
 argument-hint: "[optional continuation prompt — saves to project .claude/loop-prompt.md]"
-allowed-tools: ["Bash(\"${CLAUDE_PLUGIN_ROOT}/scripts/loop-on.sh:*\")"]
+allowed-tools: ["Bash(*loop-on.sh*)"]
 hide-from-slash-command-tool: "true"
 ---
 
 ```!
-"${CLAUDE_PLUGIN_ROOT}"/scripts/loop-on.sh $ARGUMENTS
+bash -c 'if [[ -n "${CLAUDE_PLUGIN_ROOT:-}" && -x "${CLAUDE_PLUGIN_ROOT}/scripts/loop-on.sh" ]]; then exec "${CLAUDE_PLUGIN_ROOT}/scripts/loop-on.sh" "$@"; elif [[ -x .claude/scripts/loop-on.sh ]]; then exec bash .claude/scripts/loop-on.sh "$@"; else echo "loop-on.sh not found (install cosmo-agent-skills plugin or add .claude/scripts/loop-on.sh)" >&2; exit 1; fi' _ $ARGUMENTS
 ```
 
 Non-stop mode is now active (cosmo-agent-skills plugin).

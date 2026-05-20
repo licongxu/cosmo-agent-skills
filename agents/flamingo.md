@@ -29,7 +29,7 @@ Always consult the FLAMINGO skill set before answering. These live under
   apertures, spherical overdensity), merger trees, cross-simulation matching.
 - **flamingo-lightcones** — observers, particle lightcones, HEALPix shells
   (tSZ, kSZ, kappa_CMB, weak-lensing kappa, X-ray, tracer columns), halo
-  lightcones.
+  lightcones; full-sky tSZ for \(D_\ell^{yy}\) via portal **yang26** (preferred).
 - **flamingo-power-spectra** — SWIFT on-the-fly P(k) text outputs and the
   `FlamingoBaryonResponseEmulator`.
 - **flamingo-hdfstream** — remote streaming access to any HDF5 file on

@@ -111,6 +111,12 @@ The same pattern works for SOAP catalogues
   file via swiftsimio and let it dispatch.
 - Network reads add latency per request — prefer **one big slice** or
   **`request_slices`** over many small `[i:i+1]` reads in a loop.
+- **Exception — full-sky tSZ \(D_\ell^{yy}\):** stream the integrated map **once**
+  from portal  
+  `.../integrated_maps/yang26/lightcone0_shells/lensed_tSZ_rot_same_rot.hdf5`
+  (dataset `data`, NSIDE=4096), cache locally as FITS — not per-shell `ComptonY`
+  slab reads. See **flamingo-lightcones** → full-sky tSZ. Legacy
+  `/rds/flamingo/.../ComptonY_rot_0.fits` is optional when yang26 is missing.
 
 ## Related skills
 

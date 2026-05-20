@@ -64,6 +64,16 @@ Validate: `claude plugin validate .`
 
 Bump `version` in `.claude-plugin/plugin.json` and `marketplace.json` when releasing.
 
+## Sync skills into a project (flat layout)
+
+For repos that vendor skills under `.claude/skills/` (e.g. autoflamingo at `/scratch/scratch-lxu/flamingo_data_analysis/autoflamingo`):
+
+```bash
+/path/to/cosmo-agent-skills/scripts/sync-skills-to-project.sh /path/to/your/project
+```
+
+Re-run after pulling updates to this repository.
+
 ## Install (pick one)
 
 **Cursor / Claude Code (standalone skills)** — symlink or copy individual skills:

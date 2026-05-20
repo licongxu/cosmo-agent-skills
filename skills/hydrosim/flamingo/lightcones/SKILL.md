@@ -77,6 +77,50 @@ format and the `lightcone_io` Python module for reading and sky cuts.
 - **Custom observables:** particle lightcones.
 - **Off-lightcone 3D work:** **flamingo-snapshots**, not lightcones.
 
+## Full-sky tSZ: integrated Compton-\(y\) for \(D_\ell^{yy}\)
+
+For **binned \(D_\ell^{yy}\)** (and Cobaya tSZ likelihoods), use an **integrated,
+rotation-corrected** full-sky map at **NSIDE=4096** — **not** per-shell `ComptonY`
+HDF5 alone.
+
+Per-shell **`ComptonY`** under  
+`.../healpix_maps/nside_4096/lightcone0_shells/shell_N/...`  
+is useful for exploration but **is not** the map used for integrated \(D_\ell^{yy}\):
+shells need **rotation and redshift integration**; mismatched frames break halo–map
+work. See portal [integrated lightcones](https://dataweb.cosma.dur.ac.uk:8443/flamingo/lightcones/integrated_lightcones.html).
+
+### Recommended: portal `integrated_maps/yang26` (lensed, rotation-corrected)
+
+| Portal path (`hdfstream`, dataset `data`) | Typical local cache | Availability (verify on portal) |
+|-------------------------------------------|---------------------|-----------------------------------|
+| `FLAMINGO/<run>/<run>/integrated_maps/yang26/lightcone0_shells/lensed_tSZ_rot_same_rot.hdf5` | `data/maps/{run_id}/tsz_lensed_rot_same_rot.fits` | **L2p8_m9**, **L1_m9** |
+
+- **Stream** the full `data` vector once via **`hdfstream`** (\(\sim 2\times 10^8\)
+  pixels, multi‑GB), then `healpy.write_map` locally (RING, NSIDE=4096).
+- **Do not** sum per-shell `ComptonY` over the network unless you have verified
+  rotation and integration against the release integrated product.
+- **Do not** mix **lensed** (yang26) and **un-lensed** (`ComptonY_rot_*.fits` on RDS)
+  products across runs — amplitudes differ by \(\mathcal{O}(10\text{–}15\%)\).
+- Runs **without** yang26 tSZ on the portal (e.g. **L1_m8**, **L1_m10** at time of
+  writing): **skip tSZ power spectra / tSZ Cobaya** for that run until the portal
+  product exists — do not silently substitute another map family.
+
+Reference implementation:  
+`/scratch/scratch-lxu/flamingo_data_analysis/autoflamingo` (`code/download_tsz_map.py`,
+`docs/sim_matrix.yaml`).
+
+### Legacy FITS on COSMA RDS (optional; verify per run)
+
+Some hydro runs expose **`ComptonY_rot_0.fits`** on `/rds/flamingo/` (integrated,
+**un-lensed** product). Example (HYDRO_FIDUCIAL / L2p8_m9):
+
+```text
+/rds/flamingo/L2800N5040/HYDRO_FIDUCIAL/lightcone0_shells/ComptonY_rot_0.fits
+```
+
+Use only when the yang26 portal HDF5 is unavailable **and** you have confirmed this
+is the product your pipeline expects. Prefer portal yang26 for cross-run consistency.
+
 ## Gotchas
 
 - Read units from HDF5 attributes per map (Compton-y dimensionless, kSZ as Doppler
@@ -85,6 +129,8 @@ format and the `lightcone_io` Python module for reading and sky cuts.
   cosmological realisations without checking portal guidance.
 - IO helpers (`lightcone_io`, healpy) are documented on the portal — follow those
   pages rather than guessing map pixelization.
+- **tSZ power spectra:** integrated NSIDE=4096 map from **yang26** (preferred) or a
+  single verified `ComptonY_rot_*.fits` — not per-shell `ComptonY` HDF5 alone.
 
 ## Related skills
 
