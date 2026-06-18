@@ -25,6 +25,7 @@ cosmo-agent-skills/
 └── skills/
     ├── hydrosim/             # simulation data (FLAMINGO: 6 skills)
     ├── plotting/             # figure export + validation (6 skills)
+    ├── paper-reading/        # deep-read papers → critical notes (1 skill)
     ├── paper-writing/        # manuscript workflow (3 skills)
     └── coding/               # software engineering (4 skills)
 ```
@@ -124,6 +125,16 @@ Figure export and validation — usable in analysis repos or before/during manus
 | [vlm-figure-audit](skills/plotting/vlm-figure-audit/SKILL.md) | Figure/table visual QA at print size |
 | [research-figure-manifest](skills/plotting/research-figure-manifest/SKILL.md) | Figure provenance and validator status |
 | [results-check](skills/plotting/results-check/SKILL.md) | plot-check → physics-check orchestrator |
+
+### [skills/paper-reading/](skills/paper-reading/)
+
+Deep-read a paper into a durable, critical research note (not a summary). Field-general; discovery verified against [arXiv:2006.12566](https://arxiv.org/abs/2006.12566) via the valency MCP and `WebFetch`.
+
+| Skill | Use when |
+|-------|----------|
+| [paper-deep-reading](skills/paper-reading/paper-deep-reading/SKILL.md) | Given a title/DOI/arXiv/URL/PDF, or asked to read closely, extract contributions, analyze experiments, critique, or maintain a paper-reading index |
+
+Reading scaffold follows Cooke et al. (2020), [arXiv:2006.12566](https://arxiv.org/abs/2006.12566).
 
 ### [skills/paper-writing/](skills/paper-writing/)
 
